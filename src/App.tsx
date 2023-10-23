@@ -1,15 +1,26 @@
-// import Card from "./Card/Card";
+import PokerCard from "./Card/PokerCard";
 import './App.css';
-// import {useState} from "react";
-
+import Card from "./lib/card";
+import CardDeck from "./lib/cardDeck";
+import {useState} from "react";
 
 function App() {
-  return (
-      <span className="card rank-k diams">
-          <span className="rank">K</span>
-          <span className="suit">♦</span>
-      </span>
-  )
+    const [cards, setCards] = useState<Card[]>([]);
+
+     const deal = ()  => {
+        const cardDeck = new CardDeck();
+        setCards(cardDeck.getCards(5));
+    }
+
+    return (
+        <div className="App">
+            {cards.length !== 0 &&
+                cards.map((card) => <PokerCard rank={card.rank} suit={card.suit}></PokerCard>)}
+            <div>
+                <button onClick={deal}>Deal cards</button>
+            </div>
+        </div>
+    )
 }
 
 export default App

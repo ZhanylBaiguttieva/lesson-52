@@ -3,25 +3,6 @@ import Card from './card';
 const ranks: string[] = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 const suits: string[] = ['diams','hearts','clubs','spades'];
 
-// const symbols: string[] = ['♦','♥','♣','♠'];
-
-// const getSymbol = (suit: string) => {
-//     let symbol: string = '';
-//     if(suit === suits[0]) {
-//         symbol= symbols[0];
-//     }
-//     if(suit === suits[1]) {
-//         symbol= symbols[1];
-//     }
-//     if(suit === suits[2]) {
-//         symbol= symbols[2];
-//     }
-//     if(suit === suits[3]) {
-//         symbol= symbols[3];
-//     }
-//     return symbol;
-// }
-
 class CardDeck {
     cards: Card[] = [];
     constructor() {
