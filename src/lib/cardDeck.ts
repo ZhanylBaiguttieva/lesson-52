@@ -1,7 +1,9 @@
 import Card from './card';
 
 const ranks: string[] = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-const suits: string[] = ['diams','hearts','clubs','spades'];
+const suits: string[] = ['diams', 'hearts', 'clubs', 'spades'];
+const suitImg: string[] = ['♦', '♥', '♣', '♠'];
+
 
 class CardDeck {
     cards: Card[] = [];
@@ -14,7 +16,7 @@ class CardDeck {
         }
     }
     getCard(): Card {
-        const number = Math.floor(Math.random() * 52);
+        const number = Math.floor(Math.random() * this.cards.length);
         const card = this.cards[number];
         this.cards.splice(number, 1);
         return card;
@@ -25,6 +27,10 @@ class CardDeck {
             cards.push(this.getCard());
         }
         return cards;
+    }
+    getSuitImg(suit: string): string {
+        const index = suits.findIndex(element => element === suit);
+        return suitImg[index];
     }
 }
 
